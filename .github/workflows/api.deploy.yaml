@@ -21,6 +21,6 @@ jobs:
       - name: Configure azure ACR
         uses: azure/docker-login@v2
         with:
-          login-server: ${{ACR_SERVER}}
-          username: ${{ACR_USERNAME}}
-          password: ${{ACR_PASSWORD}}
+          login-server: ${{vars.ACR_SERVER}}
+          username: ${{secrets.ACR_USERNAME}}
+          password: ${{secrets.ACR_PASSWORD}}
