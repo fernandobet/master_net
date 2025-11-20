@@ -61,7 +61,7 @@ jobs:
           PASSWORD: ${{ secrets.SQL_CONNECTION_STRING }}
         with:
           registryUrl: ${{ vars.ACR_SERVER }}
-          imageToDeploy: ${{ vars.ACR_SERVER }}/netapp:$IMAGE_TAG
+          imageToDeploy: $ACR_SERVER/netapp:$IMAGE_TAG
           targetPort: 8080
           ingress: external
           containerAppName: nu-masternet-dev-eus-aca
