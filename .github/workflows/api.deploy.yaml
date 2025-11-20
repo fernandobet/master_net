@@ -64,7 +64,8 @@ jobs:
           containerAppEnvironment: nu-masternet-dev-eus-acae
           resourceGroup: nu-masternet-dev-eus-rg
           environmentVariables: |
-            ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://+:8080 
+            ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://+:8080
+            ConnectionStrings__SqlServerDatabase="${{ secrets.SQL_DB_CONNECTIONSTRING }}" 
 
 
 
