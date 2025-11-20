@@ -6,10 +6,10 @@ resource "azurerm_container_app" "app" {
 
   template {
     min_replicas = 1
-    max_replicas = 3
+    max_replicas = 1
 
     container {
-      name = "nu-masternet-dev-eus-app"
+      name = "stub"
       cpu = 0.25
       memory = "0.5Gi"
       image = "mcr.microsoft.com/k8se/quickstart:latest"
@@ -19,13 +19,19 @@ resource "azurerm_container_app" "app" {
   ingress {
     allow_insecure_connections = false
     external_enabled = true
-    target_port = 8080
+    target_port = 80
 
     traffic_weight {
       percentage = 100 
       label = "primary"
       latest_revision = true
     }
+  }
+
+  lifecycle {
+    ignore_changes = [ 
+      template, ingress,registry, secret
+     ]
   }
 
   tags = {
